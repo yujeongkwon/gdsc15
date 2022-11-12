@@ -24,8 +24,17 @@ const getTranslate = async (text) => {
 }
 // getTranslate();
 
+const p = document.querySelector('p');
+const pText = p.innerText;
+p.style.display="none";
+const user = localStorage.getItem("user");
+
+const audio = new Audio("/assets/rain.mp3");
+audio.src = "/assets/rain.mp3";
+audio.play();
+
 var aText = new Array(
-    "To. SugarSyrup",
+    `To. ${user}`,
     "Я уверен, что у тебя все хорошо, потому что я буду 00 в будущем, я все знаю!",
     "Я не знаю, как тяжело было это сказать! Я ждал, пока ты пройдешь этот общественный телефон! Знаете ли вы, что в 2070 году, в ожидании этого дня, дрожал от телефонных звонков с воздуха?",    
     "Вот насколько я люблю себя и тебя люблю. Так как это ты в будущем, я вырос настолько, что могу гордиться собой! Как бы ты ни был трудным и темным, не сдавайся и беги, потому что ты сам так хорошо справляешься!",    
@@ -85,7 +94,8 @@ typingtext.addEventListener('mouseenter', (event) => {
     console.log(aText.length-1);
     if(iRow === aText.length - 1) {
         typingtext.innerText = aText[0];
-        typingtext.innerText += `넌 틀림없이 잘 지내고 있을 거야 난 미래의 00이니까 난 다 알아!
+        typingtext.innerText += `
+        넌 틀림없이 잘 지내고 있을 거야 난 미래의 00이니까 난 다 알아!
 
         이 말이 하고 싶어서 얼마나 힘들었는지 몰라! 네가 이 공중전화를 지나갈 때까지 기다렸어! 2070년에 이날을 기다리며 공중전화에서 바들바들 떨고 있었던 날 아니?
         
@@ -132,8 +142,10 @@ typingtext.addEventListener('click', ()=>{
     document.querySelector(".background").className = "easterEgg";
 
     const span = document.createElement('span');
-    span.innerHTML = " 2070년에도 넌 멋지구 사랑스러운 아이양 (❁´◡`❁)";
+    span.innerHTML = pText;
     span.className = "mainText";
     console.log(document.querySelector('body'));
     document.body.appendChild(span);
+
+    audio.pause();
 })
