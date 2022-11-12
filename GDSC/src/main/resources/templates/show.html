@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/show/show.css">
+    <title>...</title>
+</head>
+<body>
+    <img src="/assets/4.png" alt="backgroundImg" class="background"/>
+    <div id="root">
+        <div class="root">
+            <!-- <div class="publicPhoneWrapper">
+                <img src="../assets/4.png" alt="public-phone" class="publicPhone" />
+            </div> -->
+            <div class="publicphone"></div>
+            <svg>
+                <!-- text-anchor="middle" alignment-baseline="middle" transform="translate(260, 100)" -->
+                <text x="1vw" y="10vh" class="strokeEffectInit">โทรศัพท์จากอนาคต</text>
+            </svg>
+            <p th:text="${com}" >안녕</p>
+            <span id="typedtext"></span>
+        </div>
+    </div>
+    <script src="/js/show.js"></script>
+	<!-- <script src="https://kit.fontawesome.com/fd920d8adb.js" crossorigin="anonymous"></script> -->
+</body>
+</html>
