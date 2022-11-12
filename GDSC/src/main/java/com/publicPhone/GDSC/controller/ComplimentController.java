@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ComplimentController {
     private final ComplimentService complimentService;
 
-    @RequestMapping(method = RequestMethod.GET,path = "/compliment")
-    public String compliment(Model model){
+    @GetMapping("/compliment")
+    public String compliment(){
         String compliment = complimentService.getSentence();
         return compliment;
     }
