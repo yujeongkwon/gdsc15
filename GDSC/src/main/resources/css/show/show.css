@@ -2,6 +2,13 @@ body{
     width:100vw;
     height:100vh;
     margin:0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img.background {
@@ -11,11 +18,65 @@ img.background {
 
     z-index:-1;
 
-    filter:blur(20px);
+    position:absolute;
+    left:0;
+    right:0;
+
+    animation-name:blur;
+    animation-delay:1s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.easterEgg {
+    width:100%;
+    height:100%;
+    margin:0;
 
     position:absolute;
     left:0;
     right:0;
+}
+
+.mainText {
+    font-size:40px;
+    font-weight:bolder;
+    z-index:5;
+    color:#f3798e;
+    width:500px;
+
+    animation-name:rotate;
+    animation-duration: 2s;
+    animation-iteration-count: 3;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotateZ(0deg);
+        margin-left:500px;
+    }
+    33%{
+        margin-right:300px;
+        margin-top:300px;
+    }
+    66%{
+        margin-bottom:400px;
+        margin-right:400px;
+    }
+    100%{
+        transform: rotateZ(357deg);
+    }
+}
+
+@keyframes blur {
+    0%{
+        filter:blur(0px);
+    }
+    100%{
+        filter:blur(20px);
+    }
+    
 }
 
 div#root {
@@ -28,13 +89,129 @@ div#root {
     align-items: center;
 }
 
-div#root div.publicPhoneWrapper {
+div#root div.root{
+    position:relative;
+    height:100%;
+    width:70%;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* div#root div.publicPhoneWrapper {
     width:70vw;
     height:99%;
+    position:absolute;
+    z-index:-1;
 }
 
 div#root div.publicPhoneWrapper img {
     width:100%;
     height:100%;
     object-fit:cover;
+} */
+
+div#root div.root div.publicphone {
+    display:none;
+
+    width:300px;
+    height:300px;
+
+    position:absolute;
+
+    left:-150px;
+    bottom:150px;
+
+    border-radius:100%;
+    border:3px solid white;
+    background-image:url("../../assets/1.png");
+    background-size: cover;
+
+    animation-name:ringing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
+
+@keyframes ringing {
+    0%{
+        transform:scale(1,1);
+    }
+    100%{
+        transform:scale(1.1,1.1);
+    }
+}
+
+
+div#root div.root div.publicphoneStop {
+    width:300px;
+    height:300px;
+
+    position:absolute;
+
+    left:-150px;
+    bottom:150px;
+
+    border-radius:100%;
+    border:3px solid white;
+    background-image:url("../../assets/1.png");
+    background-size: cover;
+}
+
+div#root div.root svg {
+    width:90vw;
+    height:30vh;
+
+    margin-top:5vh;
+}
+
+div#root div.root svg text{
+    width:100%;
+    font-size:6vw;
+    font-weight:900;
+
+    fill:transparent;
+    /* 외각선 색, 두꼐, 점선사이 간격*/
+    /* stroke:#F1C164; */
+    stroke-width: 3px;
+    stroke-dasharray: 326px;
+  }
+
+  .strokeEffectInit {
+    animation-delay: 3s;
+    animation: stroke 5s linear forwards;
+  }
+
+  .strokeEffect {
+    animation: stroke 5s linear forwards;
+  }
+
+  @keyframes stroke {
+    0%   {
+        stroke:#EC4D36;
+        stroke-width: 3px;
+        stroke-dashoffset: 326px;
+    }
+    50% {
+        fill: transparent;
+    }
+    98% {
+        fill: #1D1B1B;
+        stroke:#EC4D36;
+        stroke-width: 2px;
+    }
+    100% {
+        fill: #EC4D36;
+        stroke:transparent;
+        stroke-dashoffset: 0px;
+    }
+  }
+
+  div#root div.root span#typedtext {
+    font-size:1.8vw;
+    color:white;
+
+    margin-left:20vw;
+    margin-top:-5vh;
+  }
