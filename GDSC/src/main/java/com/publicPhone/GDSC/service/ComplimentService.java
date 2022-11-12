@@ -11,14 +11,16 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class ComplimentService {
     public final ComplimentRepository complimentRepository;
     static Random random = new Random();
 
     @Transactional
     public void save(String sentence){
-        Compliment compliment = new Compliment();
-        compliment.setSentence(sentence);
+        Compliment compliment = Compliment.builder()
+                .sentence(sentence)
+                .build();
         complimentRepository.save(compliment);
     }
 
