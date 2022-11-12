@@ -25,8 +25,6 @@ public class InitDb {
 
         initService.dbInit1();
         initService.dbInit2();
-        List<Compliment> complimentList = complimentRepository.findAll();
-        System.out.println("complimentList = " + complimentList);
 
     }
 
