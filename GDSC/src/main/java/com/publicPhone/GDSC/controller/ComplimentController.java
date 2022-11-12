@@ -20,4 +20,5 @@ public class ComplimentController {
         String compliment = complimentService.getSentence();
         return compliment;
     }
+
 }
