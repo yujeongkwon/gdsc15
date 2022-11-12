@@ -39,11 +39,11 @@ img.background {
 }
 
 .mainText {
-    font-size:40px;
+    font-size:3vw;
     font-weight:bolder;
     z-index:5;
     color:#f3798e;
-    width:500px;
+    width:35vw;
 
     animation-name:rotate;
     animation-duration: 2s;
@@ -133,6 +133,8 @@ div#root div.root div.publicphone {
     animation-name:ringing;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+
+    cursor:pointer;
 }
 
 @keyframes ringing {
