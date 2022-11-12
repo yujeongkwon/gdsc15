@@ -33,6 +33,10 @@ const audio = new Audio("/assets/rain.mp3");
 audio.src = "/assets/rain.mp3";
 audio.play();
 
+const phoneCall = new Audio("/assets/phonecall.mp3");
+phoneCall.src = "/assets/phonecall.mp3";
+phoneCall.play();
+
 var aText = new Array(
     `To. ${user}`,
     "Я уверен, что у тебя все хорошо, потому что я буду 00 в будущем, я все знаю!",
@@ -77,6 +81,8 @@ function typewriter() {
 //3. Phone is Ringing
 const publicPhone = document.querySelector(".publicphone");
 publicPhone.addEventListener('click', (event) => {
+    phoneCall.pause();
+    phoneCall.src=""
     event.target.className = "publicphoneStop";
     typewriter();
 })
@@ -148,4 +154,8 @@ typingtext.addEventListener('click', ()=>{
     document.body.appendChild(span);
 
     audio.pause();
+
+    const loveBgm = new Audio("/assets/love.mp3");
+    loveBgm.src = "/assets/love.mp3";
+    loveBgm.play();
 })
